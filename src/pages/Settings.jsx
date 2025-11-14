@@ -61,7 +61,6 @@ export default function SettingsPage() {
                 type="text"
                 defaultValue="John Doe"
                 className="w-full mt-1 p-2 border rounded-md bg-gray-100"
-                disabled
               />
             </div>
 
@@ -73,7 +72,6 @@ export default function SettingsPage() {
                 type="email"
                 defaultValue="john.doe@company.com"
                 className="w-full mt-1 p-2 border rounded-md bg-gray-100"
-                disabled
               />
             </div>
 
@@ -82,7 +80,7 @@ export default function SettingsPage() {
               <input
                 type="text"
                 defaultValue="Administrator"
-                className="w-full mt-1 p-2 border rounded-md bg-gray-100"
+                className="w-full text-gray-400 mt-1 p-2 border rounded-md bg-gray-50"
                 disabled
               />
             </div>
@@ -145,7 +143,7 @@ export default function SettingsPage() {
               Save Changes
             </button>
 
-            <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition">
+            <button className="px-4 py-1 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition">
               Cancel
             </button>
           </div>
@@ -262,11 +260,11 @@ export default function SettingsPage() {
 
           {/* API Keys */}
           <div>
-            <h3 className="font-medium text-gray-800 mb-4 flex items-center gap-2">
-              <Key size={18} /> API Key Integration
-            </h3>
+            <p className="text-sm text-gray-600 mb-4 flex items-center gap-2">
+              Use these API keys to integrate VoiceBot AI with your applications and services.
+            </p>
             <div className="space-y-4">
-              <div>
+              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <label className="text-sm font-medium text-gray-600">
                   Production API Key
                 </label>
@@ -277,7 +275,7 @@ export default function SettingsPage() {
                   disabled
                 />
               </div>
-              <div>
+              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <label className="text-sm font-medium text-gray-600">
                   Development API Key
                 </label>
@@ -305,7 +303,7 @@ export default function SettingsPage() {
               </label>
               <input
                 type="url"
-                defaultValue="https://webhook.example.com/webhook"
+                placeholder="https://webhook.example.com/webhook"
                 className="w-full mt-1 p-2 border rounded-md bg-gray-50"
               />
             </div>

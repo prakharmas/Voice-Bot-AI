@@ -11,6 +11,7 @@ import ConversationDetail from "./pages/ConversationDetail";
 
 export default function App() {
   const location = useLocation();
+  const isConversationDetail = /^\/conversations\/[^/]+$/.test(location.pathname);
 
   // Hide sidebar/topbar on login page
   const isLoginPage = location.pathname === "/login" || location.pathname === "/";
@@ -26,12 +27,19 @@ export default function App() {
 
       {/* Main Content */}
       <div
-        className={`flex-1 flex flex-col bg-gray-50 overflow-y-auto ${
-          !isLoginPage ? "ml-64" : ""
-        }`}
+        className={`flex-1 flex flex-col bg-gray-50 min-h-0 ${
+          location.pathname.startsWith("/conversations/") 
+            ? "" 
+            : "overflow-y-auto"
+        } ${!isLoginPage ? "ml-64" : ""}`}
       >
+
         {!isLoginPage && <Topbar />}
-        <main className={`flex-1 ${!isLoginPage ? "p-4" : ""}`}>
+        <main
+          className={`flex-1 flex flex-col ${
+            isConversationDetail ? "min-h-0" : ""
+          } ${!isLoginPage ? "p-4" : "p-6"}`}
+        >
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />

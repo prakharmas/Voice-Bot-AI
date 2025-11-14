@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Conversations() {
   const [filter, setFilter] = useState("All");
-
+  const [search, setSearch] = useState("");
+  
   const conversations = [
     {
       name: "Sarah Johnson",
@@ -88,21 +89,18 @@ export default function Conversations() {
     },
   ];
 
-  const filteredData =
-    filter === "All"
-      ? conversations
-      : conversations.filter((c) => c.sentiment === filter.toLowerCase());
+
+
+  // Replace the previous filteredData definition with this
+  const filteredData = conversations
+    .filter((c) =>
+      filter === "All" ? true : c.sentiment === filter.toLowerCase()
+    )
+    .filter((c) => c.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="p-6">
-      {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800">Conversations</h2>
-        <p className="text-sm text-gray-500">
-          View and manage all customer conversations
-        </p>
-      </div>
-
+      
       {/* Search and Filters */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
         <div className="relative w-full sm:w-1/3">
@@ -110,6 +108,8 @@ export default function Conversations() {
             type="text"
             placeholder="Search by customer name..."
             className="w-full border border-gray-200 rounded-lg pl-10 pr-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <svg
             className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"

@@ -31,7 +31,7 @@ export default function Topbar() {
   // If viewing a specific conversation detail
   if (location.pathname.startsWith("/conversations/")) {
     return (
-      <header className="flex items-center justify-between p-4 border-b bg-white shadow-sm">
+      <header className="sticky top-0 flex items-center justify-between p-4 border-b bg-white shadow-sm">
         <div className="flex items-center gap-3">
           <button
             onClick={handleBack}

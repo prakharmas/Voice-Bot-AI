@@ -9,11 +9,11 @@ export default function ConversationDetail() {
   const handleBack = () => navigate("/conversations");
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex flex-1 min-h-0 bg-gray-50">
       {/* Chat Section */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-h-0">
         {/* Chat Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-5">
+        <div className="flex-1 overflow-auto p-6 space-y-5">
           {/* Assistant Message */}
           <div className="flex flex-col items-start">
             <div className="bg-white p-3 rounded-xl shadow-sm max-w-md">
@@ -119,7 +119,7 @@ export default function ConversationDetail() {
       </div>
 
       {/* Right Panel */}
-      <div className="w-80 border-l bg-white p-5 flex flex-col">
+      <div className="w-80 flex-shrink-0 border-l bg-white p-5 flex flex-col overflow-auto">
         {/* Customer Info */}
         <h3 className="text-gray-800 font-semibold mb-4">Customer Information</h3>
         <div className="flex items-center gap-3 mb-4">
@@ -146,12 +146,14 @@ export default function ConversationDetail() {
 
         {/* Sentiment */}
         <h3 className="text-gray-800 font-semibold mb-2">Sentiment Analysis</h3>
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-green-500 font-medium">😊 Positive</span>
           <div className="flex-1 bg-gray-200 rounded-full h-2 overflow-hidden">
             <div className="bg-green-400 h-2 w-[85%]"></div>
           </div>
-          <span className="text-sm text-gray-600">85%</span>
+          <span className="text-m text-gray-900">85%</span>
+        </div>
         </div>
 
         {/* Tags */}
@@ -180,7 +182,8 @@ export default function ConversationDetail() {
           <h3 className="text-gray-800 font-semibold mb-2">
             Conversation Summary
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <div className="bg-gray-50 rounded-xl p-4">
+            <p className="text-sm text-gray-600 leading-relaxed">
             Customer reported an "Access Denied" error when trying to login to
             their dashboard. The AI assistant identified that account
             permissions were reset during a system update. The issue was
@@ -188,6 +191,7 @@ export default function ConversationDetail() {
             successful access. The interaction was handled efficiently with a
             positive outcome.
           </p>
+          </div>      
         </div>
       </div>
     </div>
